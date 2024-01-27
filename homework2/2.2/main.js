@@ -16,6 +16,7 @@ reset.addEventListener('click', () =>{
     display.textContent = '';
 })
 equal.addEventListener('click', () =>{
-    display.textContent = eval(display.textContent);
+    const calculated = new Function('return ' + display.textContent);
+    display.textContent = calculated();
 })
 
