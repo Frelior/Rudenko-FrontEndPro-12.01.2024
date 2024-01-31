@@ -1,0 +1,10 @@
+h1{
+    text-align: center;
+}
+a{
+    font-size: 18px;
+    text-decoration: none;
+}
+a:hover{
+border: 1px solid blue;
+}
