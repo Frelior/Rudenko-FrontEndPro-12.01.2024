@@ -20,21 +20,27 @@ if (city) {
     for (const key in capitals) {
         if (city.toLowerCase() === key.toLowerCase()) {
             city = `Ви живете у столиці країни ${capitals[key]}.`;
+            break;
         }
     }
-} else if (!city) {
-    city = cancel + 'місто проживання.';
+    if (!city.includes('столиці країни')) {
+        city = `Ви живете у місті ${city}.`;
+    }
 } else {
-    city = `Ви живете у місті ${city}.`;
+    city = cancel + 'місто проживання.';
 }
 
 if (sport) {
     for (const key in sports) {
         if (sport.toLowerCase() === key.toLowerCase()) {
             sport = `Круто! Хочеш стати таким ${sports[key]}?`;
+            break;
         }
     }
-} else{
+    if (!sport.includes('стати таким')) {
+        sport = `Ви любите такий спорт як ${sport}.`;
+    }
+} else {
     sport = cancel + 'спорт.';
 }
 
