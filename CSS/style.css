@@ -1,15 +1,15 @@
 @charset "UTF-8";
-@import url(/CSS/modern-reset.css);
+@import url(modern-reset.css);
 @import url("https://fonts.googleapis.com/css2?family=Cuprum:wght@400;600;700&display=swap");
 @font-face {
   font-family: "VCR OSD Mono"; /* Выберите имя для вашего шрифта */
-  src: url("/CSS/fonts/VCR_OSD_MONO_1.001.ttf") format("truetype"); /* Путь к вашему TTF файлу */
+  src: url("fonts/VCR_OSD_MONO_1.001.ttf") format("truetype"); /* Путь к вашему TTF файлу */
   font-weight: normal; /* Нормальный вес шрифта */
   font-style: normal; /* Нормальный стиль шрифта */
 }
 @font-face {
   font-family: "RetroWave"; /* Выберите имя для вашего шрифта */
-  src: url("/CSS/fonts/alien_encounters/Alien-Encounters-Regular.ttf") format("truetype"); /* Путь к вашему TTF файлу */
+  src: url("fonts/alien_encounters/Alien-Encounters-Regular.ttf") format("truetype"); /* Путь к вашему TTF файлу */
   font-weight: normal; /* Нормальный вес шрифта */
   font-style: normal; /* Нормальный стиль шрифта */
 }
