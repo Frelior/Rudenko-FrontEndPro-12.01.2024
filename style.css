@@ -100,7 +100,7 @@ body{
     color: #ffe2ed;
 }
 .homeworks_item a:visited{
-    color: #5e5e5e0f;
+    color: #000;
 }
 .homeworks_item a{
     padding: 2px;
