@@ -26,15 +26,14 @@
     font-weight: normal;
     color: #000000;
     /* text-shadow: 2px 2px 16px #f689c36f; */
-    text-shadow: 0 -2px 14px #fff, 0 -3px 10px #000, 0 -16px 40px #000, 0 -6px 21px #e60073, 0 -13px 24px #e60073, 0 -21px 24px #e60073;
+    /* text-shadow: 0 -2px 14px #fff, 0 -3px 10px #000, 0 -16px 40px #000, 0 -6px 21px #e60073, 0 -13px 24px #e60073, 0 -21px 24px #e60073; */
+    text-shadow: 0 -2px 9px #ffa0ce, 0 -3px 10px #000, 0 -16px 40px #000, 0 1px 8px #e60073;
 }
 body{
     height: 100vh;
     position: relative;
-    /* background-image: url(mainpage/sun.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center; */
+    overflow: hidden;
+    background-color: #242541;
 }
 .background{
     position: absolute;
@@ -55,38 +54,94 @@ body{
 }
 .zero{
     bottom: 0;
-    background-image: url(mainpage/bg/mountains.png);
-}
-.one{
+    background-image: url(mainpage/bg/sunWithMountains.png);
     z-index: -1;
+    filter: blur(1px);
+}
+
+.one{
+    z-index: -2;
     background-image: url(mainpage/bg/-1.png);
     width: 21%;
     height: 60%;
     right: 4%;
     top: 3%;
+    opacity: 0.5;
+    filter: blur(1px);
+
 }
 .three{
-    z-index: -3;
+    z-index: -5;
     background-image: url(mainpage/bg/-3.png);
+    filter: blur(20px);
 }
 .wrapper{
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
 }
 .homeworks{
-    background-color: #3722439a;
+    position: relative;
+    background-color: #37224326;
+    /* border: 2px solid #1d062074; */
     list-style: none;
-    text-align: center;
-    width: 30%;
-    border: 2px solid #1d062074;
     border-radius: 5px;
-    padding: 10px;
+    padding: 1%;
+    max-height: 80vh;
+    width: 100%;
+    text-shadow: 0px 0px 7px black;
+    box-shadow: 0px 50px 40px 5px #1D0620;
+
     font-family: 'syntwave-text';
     font-size: 19px;
     letter-spacing: 1px;
-    text-shadow: 0px 0px 7px black;
-    box-shadow: 0px 50px 40px 5px #1D0620;
+    text-align: center;
+
+    column-count: 2; /* Указывает количество колонок */
+    column-gap: 10%; /* Расстояние между колонками */
+}
+.hide-button{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #fd9ee558;
+    bottom: 0;
+    left: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hided{
+    display: none;
+}
+.inactive{
+    pointer-events: none;
+    opacity: 0.3;
+
+}
+.audio-button{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    filter: blur(1px);
+    z-index: 100;
+}
+.play{
+    background-image: url(mainpage/play-button-svgrepo-com.svg);
+}
+.pause{
+    background-image: url(mainpage/music-pause-button-pair-of-lines-svgrepo-com.svg);
 }
 .homeworks_item{
     width: 100%;
@@ -109,4 +164,18 @@ body{
     text-decoration: none;
     color: #fff;
     text-shadow: 0 0px 13px #e60073, 0 2px 9px #000, 0 0 13px #000;
+}
+
+main{
+    filter: blur(1px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+}
+.p5Canvas{
+    width: 100vw;
+    height: 100vh;
 }
