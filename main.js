@@ -1,5 +1,8 @@
 const listItems = document.querySelectorAll('.link');
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789!?@#$%^&*()_+{}|:<>?';
+const hideButton = document.querySelector('.hide-button');
+const homeworks = document.querySelector('.homeworks')
+const title = document.querySelector('.title');
 
 function delay(ms){
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -25,42 +28,7 @@ listItems.forEach((item) => {
     })
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// listItems.forEach((item) => {
-//     item.addEventListener('mouseover', () => {
-//         if (!item.classList.contains('shuffling')) {
-//             item.classList.add('shuffling');
-//             let originalValue = item.textContent;
-//             for (let i = 0; i < 10; i++) {
-//                 setTimeout(() => {
-//                     let newText = '';
-//                     for (let letter of originalValue) {
-//                         const randomIndex = Math.floor(Math.random() * alphabet.length);
-//                         newText += alphabet[randomIndex];
-//                     }
-//                     item.textContent = newText;
-//                 }, i * 30);
-//             }
-//             setTimeout(() => {
-//                 item.textContent = originalValue;
-//                 item.classList.remove('shuffling');
-//             }, 10 * 30);
-//         }
-//     })
-// })
+hideButton.addEventListener('click', () =>{
+    homeworks.classList.toggle('hided');
+    title.classList.toggle('hided');
+})
