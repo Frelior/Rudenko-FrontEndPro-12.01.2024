@@ -35,6 +35,28 @@ body{
     overflow: hidden;
     background-color: #242541;
 }
+@keyframes fadeout {
+    0%{
+        opacity: 1;
+    }
+    99%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 500;
+    animation: fadeout 1s linear forwards;
+}
 .background{
     position: absolute;
     z-index: -1;
@@ -58,18 +80,6 @@ body{
     z-index: -1;
     filter: blur(1px);
 }
-
-.one{
-    z-index: -2;
-    background-image: url(mainpage/bg/-1.png);
-    width: 21%;
-    height: 60%;
-    right: 4%;
-    top: 3%;
-    opacity: 0.5;
-    filter: blur(1px);
-
-}
 .three{
     z-index: -5;
     background-image: url(mainpage/bg/-3.png);
@@ -84,7 +94,6 @@ body{
 .homeworks{
     position: relative;
     background-color: #37224326;
-    /* border: 2px solid #1d062074; */
     list-style: none;
     border-radius: 5px;
     padding: 1%;
@@ -92,14 +101,12 @@ body{
     width: 100%;
     text-shadow: 0px 0px 7px black;
     box-shadow: 0px 50px 40px 5px #1D0620;
-
     font-family: 'syntwave-text';
     font-size: 19px;
     letter-spacing: 1px;
     text-align: center;
-
-    column-count: 2; /* Указывает количество колонок */
-    column-gap: 10%; /* Расстояние между колонками */
+    column-count: 2;
+    column-gap: 10%;
 }
 .hide-button{
     position: absolute;
@@ -121,7 +128,6 @@ body{
 .inactive{
     pointer-events: none;
     opacity: 0.3;
-
 }
 .audio-button{
     position: absolute;
@@ -165,7 +171,6 @@ body{
     color: #fff;
     text-shadow: 0 0px 13px #e60073, 0 2px 9px #000, 0 0 13px #000;
 }
-
 main{
     filter: blur(1px);
     position: absolute;

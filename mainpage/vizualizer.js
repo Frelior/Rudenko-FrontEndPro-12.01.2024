@@ -15,26 +15,17 @@ function setup() {
     fft = new p5.FFT()
 }
 
-
 function draw() {
     clear();
-
-
     translate(width / 2, height / 2.05)
-
     fft.analyze()
     amp = fft.getEnergy(15000, 15900)
-
-    let alpha = map(1200+amp, 50, 255, 180, 150);
+    let alpha = map(1200+amp, 0, 255, 180, 150);
     fill(0, alpha);
     noStroke();
     rect(0,0, width, height)
-
-
     stroke(248, 101, 155)
     strokeWeight(5)
-    // noFill()
-
     let wave = fft.waveform()
 
     for (let t = -1; t <= 1; t += 2){
@@ -53,7 +44,6 @@ function draw() {
 
     let p = new Particle();
     particles.push(p)
-
     for (let i = particles.length - 1; i >= 0; i--){
         if (!particles[i].edges()){
             particles[i].update( amp > 35)
@@ -81,9 +71,7 @@ class Particle {
         this.pos = p5.Vector.random2D().mult(180);
         this.vel = createVector(0, 0);
         this.acc = this.pos.copy().mult(random(0.0001, 0.00001));
-
         this.w = random(1,4)
-
         this.color = [248, 101, 155]
     }
     update(cond){
