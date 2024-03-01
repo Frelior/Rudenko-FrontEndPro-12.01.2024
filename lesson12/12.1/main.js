@@ -14,3 +14,7 @@ function makeTable(tr = 10, td = 10) {
         }
     }
 }
+
+const rows = +prompt('imput number of rows') || 10;
+const columns = +prompt('imput number of columns') || 10;
+makeTable(rows, columns)
