@@ -48,7 +48,6 @@ function setIndicators(wrapperElement, arrayOfImages) {
     for (let i = 0; i < arrayOfImages.length; i++){
         const indicator = document.createElement('div')
         indicator.classList.add('slider_indicator')
-        console.log(i);
         wrapperElement.append(indicator)
     }
     wrapperElement.firstElementChild.classList.add('slider_indicator_active')
