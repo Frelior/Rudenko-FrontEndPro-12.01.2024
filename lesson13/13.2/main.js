@@ -35,9 +35,6 @@ slider.addEventListener('click', (event) => {
 })
 
 function handleButtonState(currentImageSelected) {
-    const btnLeft = document.querySelector('.slider_btnLeft')
-    const btnRight = document.querySelector('.slider_btnRight')
-
     currentImageSelected === 0
         ? btnLeft.setAttribute('disabled', 'true')
         : btnLeft.removeAttribute('disabled')
