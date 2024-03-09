@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.input{
+    display: flex;
+    border: 1px solid red;
+    padding: 1%;
+}
+.childDiv{
+    margin-left: 1%;
+}
