@@ -6,6 +6,7 @@
 }
 .back{
     position: absolute;
+    right: 0;
 }
 a {
     color: inherit;
@@ -14,6 +15,7 @@ body{
     font-family: 'Podkova', serif;
 }
 .wrapper {
+    position: relative;
     display: flex;
     max-width: 1440px;
     height: 100vh;
@@ -68,6 +70,7 @@ body{
 }
 .product-card{
     z-index: 1;
+    max-width: 30%;
     background-color: rgb(212, 212, 212);
     display: flex;
     flex-direction: column;
@@ -80,6 +83,13 @@ body{
 .product-card__btn{
     min-width: 50%;
     padding: 2%;
+}
+.product-card__img{
+    max-width: 200px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+    border: 2px solid black;
 }
 .modal{
     z-index: 5;
