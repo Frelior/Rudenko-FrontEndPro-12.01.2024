@@ -4,11 +4,11 @@ const productsList = document.querySelector('.products')
 const productCard = document.querySelector('.product-card')
 const productsArray = [];
 const categoriesSet = new Set();
-fetchData(productsArray,categoriesSet).then(() => renderCategories())
+
+fetchData(productsArray,categoriesSet).then(() => renderCategories()).catch(error => console.log(error))
 
 
 function renderCategories() {
-
 
     categoriesSet.forEach(category => {
         const categoryListItem = document.createElement('li')
@@ -26,7 +26,6 @@ function renderCategories() {
 }
 
 function renderProductsByCategory(category) {
-
     const targetProducts = productsArray.filter(product => product.category === category)
     productsList.innerHTML = ''
 
@@ -40,6 +39,7 @@ function renderProductsByCategory(category) {
     productsList.addEventListener('click', (event) => {
         if (event.target.tagName === 'LI'){
             const productObject = targetProducts.find(obj => obj.title === event.target.innerHTML)
+            console.log(productObject);
             renderProductDetails(productObject)
         }
     })
@@ -54,11 +54,9 @@ function renderProductDetails(productObject) {
     productImage.classList.add('product-card__img')
     productCard.append(productImage)
 
-    keys.forEach(key => {
-        const element = key === 'title'
-        ? document.createElement('h2')
-        : document.createElement('p')
-
+    //text section in product card
+    keys.forEach(key => { 
+        const element = document.createElement(key === 'title' ? 'h2' : 'p');
         element.classList.add(`product-card__${key}`)
         element.innerHTML = productObject[key]
         productCard.append(element)
@@ -67,5 +65,10 @@ function renderProductDetails(productObject) {
     const productButton = document.createElement('button')
     productButton.classList.add('product-card__btn')
     productButton.innerHTML = 'Buy'
+    productButton.addEventListener('click', event => {
+        alert(`You have successfully purchased ${productObject.title}. Thank you for choosing our store!`)
+        productsList.innerHTML = ''
+        productCard.innerHTML = ''
+    })
     productCard.append(productButton)
 }

@@ -69,6 +69,7 @@ body{
     background-color: rgb(212, 212, 212);
 }
 .product-card{
+    transition: all 0.5s ease;
     z-index: 1;
     max-width: 30%;
     background-color: rgb(212, 212, 212);
@@ -86,6 +87,7 @@ body{
 }
 .product-card__img{
     max-width: 200px;
+    max-height: 200px;
     object-fit: cover;
     object-position: center;
     border-radius: 5px;
