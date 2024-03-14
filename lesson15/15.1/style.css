@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Podkova:wght@400..800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.back{
+    position: absolute;
+    right: 0;
+}
+a {
+    color: inherit;
+}
+body{
+    font-family: 'Podkova', serif;
+}
+.wrapper {
+    position: relative;
+    display: flex;
+    max-width: 1440px;
+    height: 100vh;
+    border: 3px solid black;
+    box-shadow: 0px 0px 10px black;
+    margin: 0 auto;
+}
+.main-nav{
+    z-index: 3;
+    background-color: #fff;
+    max-width: 271px;
+    height: 100%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 4px 0px 15px black;
+}
+.main-nav h1 {
+    font-weight: normal;
+    font-size: 28px;
+}
+.nav-list{
+    padding: 15% 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.nav-item{
+    list-style: none;
+    font-weight: normal;
+    font-size: 20px;
+}
+.nav-item:hover{
+    background-color: rgb(212, 212, 212);
+}
+.products{
+    z-index: 2;
+    background-color: #ecebeb;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2%;
+    gap: 10px;
+    box-shadow: 4px 0px 15px black;
+}
+.product{
+    cursor: pointer;
+}
+.product:hover{
+    background-color: rgb(212, 212, 212);
+}
+.product-card{
+    transition: all 0.5s ease;
+    z-index: 1;
+    max-width: 30%;
+    background-color: rgb(212, 212, 212);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 2%;
+    box-shadow: 4px 0px 15px black;
+}
+.product-card__btn{
+    min-width: 50%;
+    padding: 2%;
+}
+.product-card__img{
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+.modal{
+    z-index: 5;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    padding: 5%;
+    background-color: rgba(110, 110, 110, 0.919);
+    text-align: center;
+    font-size: 28px;
+}
