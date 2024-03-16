@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 27</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <a class="back" href="https://frelior.github.io/Rudenko-FrontEndPro-12.01.2024/">Back to main page</a>
+
+    <main>
+        <form action="#" class="register-form">
+            <h2>Register</h2>
+            <input type="text" id="firstName" name="First name" placeholder="First name" required>
+            <input type="text" id="lastName" name="Last name" placeholder="Last name" required>
+            <div class="register-form__birth-gender">
+                <div class="register-form__birth">
+                    <label for="birthDate">Birth date</label>
+                    <input type="date" id="birthDate" name="Birth date" placeholder="Birth date" required>
+                </div>
+                <div class="register-form__gender">
+                    <input type="radio" id="male" name="Genger" value="male" required>
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="Genger" value="female">
+                    <label for="female">Female</label>
+                </div>
+            </div>
+            <div class="register-form__address">
+                <div class="register-form__city">
+                    <label for="city">City</label>
+                    <select name="City" id="city">
+                        <option value="Kharkiv">Kharkiv</option>
+                        <option value="Kyiv">Kyiv</option>
+                        <option value="Other city">Other city</option>
+                    </select>
+                </div>
+                <div class="register-form__user-address">
+                    <label for="address">Address</label>
+                    <input type="text" name="Address" id="address" placeholder="Address" required>
+                </div>
+            </div>
+            <div class="register-form__languages">
+                <p>Languages</p>
+                <input type="checkbox" id="ua" name="Lang" value="Ukrainian" checked>
+                <label for="ua">Ukrainian</label>
+                <input type="checkbox" id="en" name="Lang" value="English">
+                <label for="en">English</label>
+            </div>
+            <button class="register-form__submit" type="submit">Submit</button>
+        </form>
+        <table>
+
+        </table>
+    </main>
+
+</html>
