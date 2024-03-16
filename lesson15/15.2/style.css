@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url(assets/background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+main{
+    margin: 0 auto;
+    background-color: rgb(0 0 255 / 8%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.register-form{
+    border-radius: 15px;
+    width: 400px;
+    border: 2px solid #dcdcdc61;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    text-shadow: 0px 2px 5px #000;
+}
+.register-form *{
+    font-family: 'Madimi One', cursive;
+}
+.register-form h2{
+    font-size: 36px;
+}
+#firstName, #lastName{
+    font-size: medium;
+    border-radius: 15px;
+    padding: 0 5%;
+    width: 100%;
+    height: 40px;
+    background-color: #dcdcdc17;
+    border-color: #dcdcdc8e;
+    color: black;
+}
+#firstName::placeholder, #lastName::placeholder{
+    color: black;
+}
+.register-form__birth-gender, .register-form__address{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
+#birthDate{
+    border-radius: 15px;
+    padding: 0 10px;
+}
+.register-form__languages{
+    align-self: flex-start;
+}
+.register-form__languages label{
+    font-size: 14px;
+}
+#city, #address{
+    border-radius: 15px;
+    padding: 0 5%;
+    width: 70%;
+}
+.register-form__submit{
+    width: 80%;
+    height: 40px;
+    border-radius: 15px;
+}
+.back{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
