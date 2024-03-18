@@ -1,7 +1,8 @@
 import { fetchData } from './fetchData.js';
+import { modalElement } from './modalElement.js';
 const navList = document.querySelector('.nav-list')
 const main = document.querySelector('.main')
-const productsList = document.querySelector('.products')
+const body = document.getElementById('body')
 const productCard = document.querySelector('.product-card')
 const productsArray = [];
 const categoriesSet = new Set();
@@ -44,7 +45,6 @@ function renderProductsByCategory(category) {
     main.addEventListener('click', (event) => {
         if (event.target.tagName === 'LI'){
             const productObject = targetProducts.find(obj => obj.title === event.target.innerHTML)
-            console.log(productObject);
             renderProductDetails(productObject)
         }
     })
@@ -70,10 +70,25 @@ function renderProductDetails(productObject) {
     const productButton = document.createElement('button')
     productButton.classList.add('product-card__btn')
     productButton.innerHTML = 'Buy'
-    productButton.addEventListener('click', event => {
-        alert(`You have successfully purchased ${productObject.title}. Thank you for choosing our store!`)
-        productsList.innerHTML = ''
-        productCard.innerHTML = ''
+    productButton.addEventListener('click', event =>{
+        renderModalWindow(productObject)
     })
     productCard.append(productButton)
+}
+
+
+
+function renderModalWindow(productObject) {
+    const tempContainer = document.createElement('div')
+    tempContainer.innerHTML = modalElement
+
+    const modal = tempContainer.firstChild
+    modal.querySelector('h3').textContent = productObject.title
+    const modalForm = modal.querySelector('.modal-card__info')
+    // modalSubmit.addEventListener('click', event => {
+    //     //обработка клика
+    // })
+
+    console.log(modal, productObject, modalForm);
+    body.append(modal)
 }
