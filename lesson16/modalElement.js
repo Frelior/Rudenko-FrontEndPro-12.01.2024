@@ -5,11 +5,11 @@ export const modalElement = `<div class="modal">
             <h3 class="title">Product Name</h3>
             <div class="modal-card__product-amount">
                 <label for="product-amount">Amount</label>
-                <input type="number" name="Product amount" id="product-amount" placeholder="Product amount" value="1" required>
+                <input type="number" name="Amount" id="product-amount" placeholder="Product amount" value="1" required>
             </div>
             <div class="modal-card__user">
-                <input type="text" name="User name" id="username" placeholder="User name" required>
-                <input type="text" name="User surname" id="surname" placeholder="User surname" required>
+                <input type="text" name="Name" id="username" placeholder="User name" required autocomplete="on">
+                <input type="text" name="Surname" id="surname" placeholder="User surname" required autocomplete="on">
             </div>
             <div class="modal-card__delivery">
                 <label for="city">City</label>
@@ -20,7 +20,7 @@ export const modalElement = `<div class="modal">
                 </select>
                 <div class="post-office">
                     <label for="nova-post">Nova post office #</label>
-                    <input type="number" name="Nova post" id="nova-post" placeholder=""  required>
+                    <input type="number" name="Nova post office" id="nova-post" placeholder=""  required autocomplete="on">
                 </div>
             </div>
             <div class="payment">

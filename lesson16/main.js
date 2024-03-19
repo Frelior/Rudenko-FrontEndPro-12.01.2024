@@ -11,6 +11,10 @@ fetchData(productsArray,categoriesSet).then(() => renderCategories()).catch(erro
 
 
 function renderCategories() {
+    main.classList.add('display-none')
+    main.innerHTML = ''
+    productCard.innerHTML = ''
+    navList.innerHTML = ''
 
     categoriesSet.forEach(category => {
         const categoryListItem = document.createElement('li')
@@ -53,13 +57,12 @@ function renderProductsByCategory(category) {
 function renderProductDetails(productObject) {
     productCard.innerHTML = ''
     const keys = ['title', 'brand', 'price', 'description']
-
     const productImage = document.createElement('img')
     productImage.src = productObject.images[0]
+
     productImage.classList.add('product-card__img')
     productCard.append(productImage)
 
-    //text section in product card
     keys.forEach(key => { 
         const element = document.createElement(key === 'title' ? 'h2' : 'p');
         element.classList.add(`product-card__${key}`)
@@ -76,18 +79,39 @@ function renderProductDetails(productObject) {
     productCard.append(productButton)
 }
 
-
-
 function renderModalWindow(productObject) {
     const tempContainer = document.createElement('div')
     tempContainer.innerHTML = modalElement
-
     const modal = tempContainer.firstChild
     modal.querySelector('h3').textContent = productObject.title
     const modalForm = modal.querySelector('.modal-card__info')
-    // modalSubmit.addEventListener('click', event => {
-    //     //обработка клика
-    // })
+
+    modalForm.addEventListener('submit', event => {
+        event.preventDefault()
+        const formData = new FormData(modalForm)
+        const wrapper = document.createElement('div')
+        const title = document.createElement('h3')
+        title.textContent = `Info about purchase ${productObject.title}`
+    
+        wrapper.append(title)
+        for (let [key, value] of formData.entries()){
+            console.log(key, value);
+            const element = document.createElement('div')
+            element.textContent = `${key}: ${value}`
+            wrapper.append(element)
+        }
+        const closeButton = document.createElement('button')
+        closeButton.textContent = 'OK'
+        closeButton.addEventListener('click', () =>{
+            renderCategories()
+            modal?.remove()
+        })
+        wrapper.append(closeButton)
+        const modalParent = modalForm.parentElement
+        modalParent.innerHTML = ''
+        modalParent.append(wrapper)
+        
+    })
 
     console.log(modal, productObject, modalForm);
     body.append(modal)
