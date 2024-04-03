@@ -4,8 +4,9 @@ const buttons = document.querySelector('.header-buttons')
 buttons.addEventListener('click', (event) => {
     if (event.target.tagName === 'BUTTON') {
         const city = event.target.innerText.toUpperCase()
-        getWeather(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=5d066958a60d315387d9492393935c19`)
+        getWeather(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=5d066958a60d315387d9492393935c19`)
             .then(renderWeather)
+            .catch(error => console.log(error))
     }
 })
 
@@ -31,7 +32,7 @@ async function renderWeather(weatherData) {
     for (let key in weatherObj) {
         const element = main.querySelector(`[key = "${key}"]`);
         if (key === 'icon') {
-            element.src = `http://openweathermap.org/img/w/${weatherObj[key]}.png`;
+            element.src = `https://openweathermap.org/img/w/${weatherObj[key]}.png`;
         } else {
             element.innerHTML = weatherObj[key];
         }
