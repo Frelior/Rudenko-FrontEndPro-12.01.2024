@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 30</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Weather</h1>
+        <div class="header-buttons">
+            <button>Kharkiv</button>
+            <button>Lviv</button>
+            <button>Kyiv</button>
+        </div>
+    </header>
+    <main class="main display-none">
+        <h3>Weather in <span key = "name">city</span></h3>
+        <div class="desc">
+            <p key = "description">description</p>
+            <img key = "icon" src="http://openweathermap.org/img/w/10d.png" alt="icon">
+        </div>
+        <ul>
+            <li>Temperature: <span key = "temp">temp</span>°C</li>
+            <li>Pressure: <span key = "pressure">pressure</span> hPa</li>
+            <li>Humidity: <span key = "humidity">humidity</span>%</li>
+            <li>Wind speed: <span key = "speed">speed</span> m/s</li>
+            <li>Wind direction: <span key = "deg">direction</span>°</li>
+        </ul>
+    </main>
+</body>
+</html>

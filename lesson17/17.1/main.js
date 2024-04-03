@@ -193,11 +193,11 @@ function renderModalWindow(productObject) {
         const purchaseInfo = {
             title: productObject.title,
             brand: productObject.brand,
+            price: productObject.price,
             amount: formData.get('Amount'),
-            price: productObject.price * formData.get('Amount'),
             date: new Date().toLocaleDateString()
         }
-        localStorage.setItem(`${purchaseInfo.date} - ${purchaseInfo.price}`, JSON.stringify(purchaseInfo))
+        localStorage.setItem(`${purchaseInfo.date} - ${productObject.price}`, JSON.stringify(purchaseInfo))
     })
 
     body.append(modal)

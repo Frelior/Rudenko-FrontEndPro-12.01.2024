@@ -36,7 +36,7 @@ async function renderWeather(weatherData) {
             element.innerHTML = weatherObj[key];
         }
     }
-
+    
     main.classList.remove('display-none');
 }
 
