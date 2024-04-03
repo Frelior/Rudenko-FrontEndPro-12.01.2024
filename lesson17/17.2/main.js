@@ -10,7 +10,6 @@ buttons.addEventListener('click', (event) => {
     }
 })
 
-
 async function getWeather(url) {
     const response = await fetch(url)
     const data = await response.json()
