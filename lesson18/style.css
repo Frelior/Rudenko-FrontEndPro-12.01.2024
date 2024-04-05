@@ -3,6 +3,26 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: rgb(210, 210, 210);
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.message-body, .comment{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+.comments-btn{
+    max-width: 200px;
+}
+.comment{
+    gap: 5px;
+}
 .search-input[type=number]::-webkit-inner-spin-button,
 .search-input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -12,4 +32,10 @@
 }
 .header{
     border: 1px solid black;
+}
+p{
+    font-weight: bold;
+}
+p > span{
+    font-weight: normal;
 }
