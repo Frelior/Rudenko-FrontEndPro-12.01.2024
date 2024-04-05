@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.search-input[type=number]::-webkit-inner-spin-button,
+.search-input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+.search-input{
+    width: 10%;
+}
+.header{
+    border: 1px solid black;
+}
