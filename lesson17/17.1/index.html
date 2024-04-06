@@ -4,20 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homework 29</title>
-    <link rel="stylesheet" href="style.css">
-    <script type="module" src="main.js" defer></script>
-
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/bootstrap.min.js"></script>
+    <script type="module" src="js/main.js"></script>
 </head>
-<body id="body">
-    <div class="wrapper">
-        <nav class="main-nav">
-            <h1>Mega-Magaz</h1>
-            <ul class="nav-list list"></ul>
-            <ul class="storage-list list"></ul>
-            <button class="show-button">Show previous purchases</button>
-        </nav>
-        <main class="main display-none"></main>
-        <div class="product-card"></div>
+<body>
+    <nav>
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+            <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+              <span class="fs-4">Mega Magaz</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <!--  class="nav-item" -->
+              <li class="nav-link text-white">
+                Laptops
+              </li>
+              <li class="nav-link text-white">
+                Laptops
+              </li>
+              <li class="nav-link text-white">
+                Laptops
+              </li>
+              <li class="nav-link text-white">
+                Laptops
+              </li>
+              <li class="nav-link text-white">
+                Laptops
+              </li>
+
+            </ul>
+            <hr>
+          </div>
+    </nav>
+
+    <main>
+        <div class="container main-block">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">Product 1</h5>
+                    <p class="card-text">Price: $10</p>
+                </div>
+            </div>
+            </div>
+            <div class="col">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Product 2</h5>
+                <p class="card-text">Price: $20</p>
+                </div>
+            </div>
+            </div>
+            <div class="col">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Product 3</h5>
+                <p class="card-text">Price: $15</p>
+                </div>
+            </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Product 3</h5>
+                    <p class="card-text">Price: $15</p>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Product 3</h5>
+                    <p class="card-text">Price: $15</p>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Product 3</h5>
+                    <p class="card-text">Price: $15</p>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Product 3</h5>
+                    <p class="card-text">Price: $15</p>
+                </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="single-product">
+        <div
+            class="card text-white bg-primary single-product__card"
+        >
+            <img class="card-img-top" src="holder.js/100px180/" alt="Title" />
+            <div class="card-body">
+                <h4 class="card-title">Title</h4>
+                <p class="card-text">Text</p>
+            </div>
+        </div>
+        
+    </div>
+</main>
 </body>
 </html>
