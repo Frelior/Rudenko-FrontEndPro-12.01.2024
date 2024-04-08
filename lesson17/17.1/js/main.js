@@ -24,4 +24,9 @@ function renderProductsByCategory(category) {
     targetProducts.forEach(product => {
         renderTemplate(productsList, setProductTemplate(product.title, product.price))
     })
+    productsList.addEventListener('click', (event) => {
+        if (event.target.closest('.card')) {
+            console.log('asdasd');
+        }   
+    })
 }
