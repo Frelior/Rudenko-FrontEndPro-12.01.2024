@@ -47,14 +47,6 @@ export function setSingleProductTemplate(productObject) {
         resultElement.remove()
     }
   })
-
-  //processing buy button
-  const buyButton = resultElement.querySelector('.single-product__buy')
-  buyButton.addEventListener('click', () => {
-    alert(`You have successfully purchased ${productObject.title}. Thank you for choosing our store!`)
-    renderBuyForm()
-  })
-
   return resultElement
 }
 
@@ -63,49 +55,116 @@ export function renderTemplate(parentElement, productTemplate) {
   return productTemplate
 }
 
-function renderBuyForm(parentElement = null, productObject = null) {
+export function renderBuyForm(parentElement, productObject) {
+  const template = `<div class="buy-form__container">
+  <h1>Purchase ${productObject.title}</h1>
+  <form class="buy-form__form">
+    <div class="mb-1">
+      <label for="firstName" class="form-label">First name</label>
+      <input type="text" class="form-control" id="firstName" required>
+      <label for="secondName" class="form-label">Last name</label>
+      <input type="text" class="form-control" id="lastName" required>
+    </div>
+    <div class="mb-1">
+      <label for="city" class="form-label">City</label>
+      <select class="form-select" id="city" required>
+        <option selected disabled value="">Choose your city</option>
+        <option>Kharkiv</option>
+        <option>Kyiv</option>
+        <option>Lviv</option>
+      </select>
+    </div>
+    <div class="mb-1">
+      <label for="postOffice" class="form-label">Nova Post Office</label>
+      <input type="text" class="form-control" id="postOffice" required>
+    </div>
+    <div class="mb-1">
+      <label for="paymentMethod" class="form-label">Payment method</label>
+      <select class="form-select" id="paymentMethod" required>
+        <option selected disabled value="">Choose your payment method</option>
+        <option>Card</option>
+        <option>Cash</option>
+      </select>
+    </div>
+    <div class="mb-1">
+      <label for="quantity" class="form-label">Quantity</label>
+      <input type="number" class="form-control" id="quantity" required>
+    </div>
+    <div class="mb-1">
+      <label for="comment" class="form-label">Comment</label>
+      <textarea class="form-control" id="comment" rows="3"></textarea>
+    </div>
+    <div class="buy-form__buttons">
+    <button type="submit" class="btn btn-primary mb-3">Buy</button>
+    <button type="button" class="btn btn-secondary mb-3" id="buy-form__cancel">Cancel</button>
+    </div>
+  </form>
+  </div>`
+  const resultElement  = document.createElement('div');
+  resultElement.classList.add('card', 'single-product__card', 'buy-form');
+  resultElement.innerHTML = template;
+
+  const cancelButton = resultElement.querySelector('#buy-form__cancel')
+  cancelButton.addEventListener('click', () => {
+    resultElement.remove()
+  })
+
+
+  // processing order
+  const buyForm = resultElement.querySelector('.buy-form__form')
+
+  buyForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+    const firstName = buyForm.querySelector('#firstName')
+    const lastName = buyForm.querySelector('#lastName')
+    const city = buyForm.querySelector('#city')
+    const postOffice = buyForm.querySelector('#postOffice')
+    const paymentMethod = buyForm.querySelector('#paymentMethod')
+    const quantity = buyForm.querySelector('#quantity')
+    const comment = buyForm.querySelector('#comment')
+
+    const order = {
+      productTitleId: productObject.id,
+      productTitle: productObject.title,
+      orderPrice: productObject.price * quantity.value,
+      firstName: firstName.value,
+      lastName: lastName.value,
+      city: city.value,
+      postOffice: postOffice.value,
+      paymentMethod: paymentMethod.value,
+      quantity: quantity.value,
+      comment: comment.value
+    }
+
+    addOrderToLocalStorage(order)
+    console.log(order)
+    resultElement.remove();
+  })
+
+
+  parentElement.append(resultElement)
+}
+
+function addOrderToLocalStorage(order) {
+  const orders = JSON.parse(localStorage.getItem('orders')) || []
+  orders.push(order)
+  localStorage.setItem('orders', JSON.stringify(orders))
+}
+
+export function renderLocalStorage(parentElement) {
   const template = `
-    <h1>Purchase productName</h1>
-    <form>
-      <div class="mb-1">
-        <label for="firstName" class="form-label">First name</label>
-        <input type="text" class="form-control" id="firstName" required>
-        <label for="secondName" class="form-label">Last name</label>
-        <input type="text" class="form-control" id="lastName" required>
-      </div>
-      <div class="mb-1">
-        <label for="city" class="form-label">City</label>
-        <select class="form-select" id="city" required>
-          <option selected disabled value="">Choose your city</option>
-          <option>Kharkiv</option>
-          <option>Kyiv</option>
-          <option>Lviv</option>
-        </select>
-      </div>
-      <div class="mb-1">
-        <label for="postOffice" class="form-label">Nova Post Office</label>
-        <input type="text" class="form-control" id="postOffice" required>
-      </div>
-      <div class="mb-1">
-        <label for="paymentMethod" class="form-label">Payment method</label>
-        <select class="form-select" id="paymentMethod" required>
-          <option selected disabled value="">Choose your payment method</option>
-          <option>Card</option>
-          <option>Cash</option>
-        </select>
-      </div>
-      <div class="mb-1">
-        <label for="quantity" class="form-label">Quantity</label>
-        <input type="number" class="form-control" id="quantity" required>
-      </div>
-      <div class="mb-1">
-        <label for="comment" class="form-label">Comment</label>
-        <textarea class="form-control" id="comment" rows="3"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary mb-3">Buy</button>
-    </form>`
-const resultElement  = document.createElement('div');
-resultElement.classList.add('container', 'card', 'single-product__card', 'buy-form');
-resultElement.innerHTML = template;
-console.log(resultElement);
+  <div class="d-flex flex-column flex-shrink-0 p-3 text-white local-storage" style="width: 280px;">
+  <ul class="nav nav-pills flex-column mb-auto categories">
+    <li class="nav-link text-white">buy1</li>
+    <li class="nav-link text-white">buy2</li>
+    <li class="nav-link text-white">buy3</li>
+  </ul>
+  <hr>
+  <button>Back</button>
+  <hr>
+</div>`
+
+
+  const orders = JSON.parse(localStorage.getItem('orders')) || []
+  console.log(orders);
 }

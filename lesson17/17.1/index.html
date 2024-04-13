@@ -38,54 +38,23 @@
             </ul>
             <hr>
           </div>
+          
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white local-storage" style="width: 280px;">
+          <ul class="nav nav-pills flex-column mb-auto categories">
+            <li class="nav-link text-white">buy1</li>
+            <li class="nav-link text-white">buy2</li>
+            <li class="nav-link text-white">buy3</li>
+          </ul>
+          <hr>
+          <button>Back</button>
+          <hr>
+        </div>
     </nav>
 
     <main class="main">
         <div class="container main-block">
             <div class="row row-cols-1 row-cols-md-3 g-4 products-list"></div>
         </div>
-
-        <div class="container card single-product__card buy-form">
-            <h1>Purchase productName</h1>
-            <form>
-              <div class="mb-1">
-                <label for="firstName" class="form-label">First name</label>
-                <input type="text" class="form-control" id="firstName" required>
-                <label for="secondName" class="form-label">Last name</label>
-                <input type="text" class="form-control" id="lastName" required>
-              </div>
-              <div class="mb-1">
-                <label for="city" class="form-label">City</label>
-                <select class="form-select" id="city" required>
-                  <option selected disabled value="">Choose your city</option>
-                  <option>Kharkiv</option>
-                  <option>Kyiv</option>
-                  <option>Lviv</option>
-                </select>
-              </div>
-              <div class="mb-1">
-                <label for="postOffice" class="form-label">Nova Post Office</label>
-                <input type="text" class="form-control" id="postOffice" required>
-              </div>
-              <div class="mb-1">
-                <label for="paymentMethod" class="form-label">Payment method</label>
-                <select class="form-select" id="paymentMethod" required>
-                  <option selected disabled value="">Choose your payment method</option>
-                  <option>Card</option>
-                  <option>Cash</option>
-                </select>
-              </div>
-              <div class="mb-1">
-                <label for="quantity" class="form-label">Quantity</label>
-                <input type="number" class="form-control" id="quantity" required>
-              </div>
-              <div class="mb-1">
-                <label for="comment" class="form-label">Comment</label>
-                <textarea class="form-control" id="comment" rows="3"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary mb-3">Buy</button>
-            </form>
-          </div>
     </main>
 </body>
 </html>

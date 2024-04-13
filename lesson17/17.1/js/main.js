@@ -1,4 +1,4 @@
-import {fetchData, setProductTemplate, renderTemplate, setSingleProductTemplate} from './dataAndTemplates.js';
+import {fetchData, setProductTemplate, renderTemplate, setSingleProductTemplate, renderBuyForm, renderLocalStorage} from './dataAndTemplates.js';
 
 const main = document.querySelector('.main');
 const productsList = document.querySelector('.products-list');
@@ -14,7 +14,7 @@ fetchData(productsData)
             }
         })
     })
-.catch(error => alert(`Failed to fetch products data\n${error}`))
+.catch(error => console.log(`Failed to fetch products data\n${error}`))
 
 
 function renderProductsByCategory(category) {
@@ -26,8 +26,13 @@ function renderProductsByCategory(category) {
 
         productElement.addEventListener('click', (event) => {
             if (event.target.closest('.card')) {
-                console.log(product);
-                renderSingleProduct(product)
+                const singleProduct = renderSingleProduct(product)
+
+                // processing buy button
+                const buyButton = singleProduct.querySelector('.single-product__buy')
+                buyButton.addEventListener('click', () => {
+                  renderBuyForm(main, product)
+                })
             }
         })
     })
@@ -37,3 +42,14 @@ function renderSingleProduct(product) {
     const singleProduct = renderTemplate(main, setSingleProductTemplate(product))
     return singleProduct
 }
+
+function clearMainBlock() {
+    const mainChildren = main.children
+    for (let i = 0; i < mainChildren.length; i++) {
+        if (!mainChildren[i].classList.contains('main-block')) {
+            mainChildren[i].remove()
+        }
+    }
+}
+
+renderLocalStorage()
