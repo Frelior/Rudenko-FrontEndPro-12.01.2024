@@ -14,7 +14,7 @@ fetchData(productsData)
             }
         })
     })
-.catch(error => console.log(error))
+.catch(error => alert(`Failed to fetch products data\n${error}`))
 
 
 function renderProductsByCategory(category) {
