@@ -124,7 +124,7 @@ export function renderBuyForm(parentElement, productObject) {
     const comment = buyForm.querySelector('#comment')
 
     const order = {
-      productTitleId: productObject.id,
+      productObjectId: productObject.id,
       productTitle: productObject.title,
       orderPrice: productObject.price * quantity.value,
       firstName: firstName.value,
@@ -133,7 +133,8 @@ export function renderBuyForm(parentElement, productObject) {
       postOffice: postOffice.value,
       paymentMethod: paymentMethod.value,
       quantity: quantity.value,
-      comment: comment.value
+      comment: comment.value,
+      date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'numeric', day: 'numeric' })
     }
 
     addOrderToLocalStorage(order)
@@ -153,18 +154,27 @@ function addOrderToLocalStorage(order) {
 
 export function renderLocalStorage(parentElement) {
   const template = `
-  <div class="d-flex flex-column flex-shrink-0 p-3 text-white local-storage" style="width: 280px;">
-  <ul class="nav nav-pills flex-column mb-auto categories">
-    <li class="nav-link text-white">buy1</li>
-    <li class="nav-link text-white">buy2</li>
-    <li class="nav-link text-white">buy3</li>
-  </ul>
-  <hr>
-  <button>Back</button>
-  <hr>
-</div>`
+    <ul class="nav nav-pills flex-column mb-auto categories"></ul>
+    <hr>
+    <button>Back</button>
+    <hr>`
+
+  const resultElement  = document.createElement('div');
+  resultElement.classList.add('d-flex', 'flex-column', 'flex-shrink-0', 'p-3', 'text-white', 'local-storage', 'style="width:280px;"');
+  resultElement.innerHTML = template;
+  const ul = resultElement.querySelector('ul')
 
 
   const orders = JSON.parse(localStorage.getItem('orders')) || []
-  console.log(orders);
+  orders.forEach(order => {
+    const li = document.createElement('li')
+    li.classList.add('nav-link', 'text-white')
+    li.innerHTML = `${order.productTitle} - ${order.orderPrice}. ${order.date}<hr></hr>`
+    ul.append(li)
+  })
+
+  parentElement.append(resultElement)
 }
+
+//клик на ордер - вызывается функция renderOrderDetails(orderObject) появляется окно с деталями и кнопка делит
+// клик на делит - заходим в локал сторедж, ищем в массиве order === orderObject и удаляем из масива, потом вставляем в локал сторедж

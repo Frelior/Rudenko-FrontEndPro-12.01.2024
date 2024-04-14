@@ -122,3 +122,6 @@ nav{
     height: 100%;
     background-color: #ff6d6d;
 }
+li hr{
+    margin: 0;
+}

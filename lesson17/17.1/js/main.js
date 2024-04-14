@@ -1,6 +1,7 @@
 import {fetchData, setProductTemplate, renderTemplate, setSingleProductTemplate, renderBuyForm, renderLocalStorage} from './dataAndTemplates.js';
 
 const main = document.querySelector('.main');
+const nav = document.querySelector('.body-nav');
 const productsList = document.querySelector('.products-list');
 const productsData = {};
 
@@ -52,4 +53,4 @@ function clearMainBlock() {
     }
 }
 
-renderLocalStorage()
+renderLocalStorage(nav)
