@@ -1,42 +1,46 @@
 const main = document.querySelector('.main')
-const buttons = document.querySelector('.header-buttons')
+const btnGroup = document.querySelector('.btn-group')
+const weatherXhr = new XMLHttpRequest()
 
-buttons.addEventListener('click', (event) => {
-    if (event.target.tagName === 'BUTTON') {
-        const city = event.target.innerText.toUpperCase()
-        getWeather(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=5d066958a60d315387d9492393935c19`)
-            .then(renderWeather)
-            .catch(error => console.log(error))
+
+weatherXhr.onload = () => {
+    if (weatherXhr.status >= 200 && weatherXhr.status < 300) {
+        const response = JSON.parse(weatherXhr.responseText);
+
+        //rendering weather info
+        const weatherInfoTemplate = `
+            <div class="card-body">
+                <h4 class="card-title">Weather in ${response.name}</h4>
+                <div class="card-desc">
+                    <p class="card-text">${response.weather[0].description[0].toUpperCase() + response.weather[0].description.slice(1)}</p>
+                    <img src="https://openweathermap.org/img/w/${response.weather[0].icon}.png" alt="img">
+                </div>
+                <hr>
+                <p class="card-text">Temperature: ${response.main.temp}°C</p>
+                <p class="card-text">Pressure: ${response.main.pressure} hPa</p>
+                <p class="card-text">Humidity: ${response.main.humidity}%</p>
+                <p class="card-text">Wind Speed: ${response.wind.speed} m/s</p>
+                <p class="card-text">Wind Direction: ${response.wind.deg}°</p>
+            </div>`
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.innerHTML = weatherInfoTemplate;
+    
+        main.textContent = '';
+        main.appendChild(card);
+    } else {
+        console.log('Error loading weather data' + weatherXhr.status);
+    }
+}
+
+btnGroup.addEventListener('click', (event) => {
+    if (event.target.tagName === 'LABEL') {
+        const city = event.target.textContent
+        getRequestForCity(city)
     }
 })
 
-async function getWeather(url) {
-    const response = await fetch(url)
-    const data = await response.json()
-    return data;
+function getRequestForCity(city) {
+    weatherXhr.open('GET', `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=5d066958a60d315387d9492393935c19`);
+    weatherXhr.send();
 }
-
-async function renderWeather(weatherData) {
-    const weatherObj = {
-        name: weatherData.name,
-        temp: weatherData.main.temp,
-        pressure: weatherData.main.pressure,
-        humidity: weatherData.main.humidity,
-        description: weatherData.weather[0].description[0].toUpperCase() + weatherData.weather[0].description.slice(1),
-        icon: weatherData.weather[0].icon,
-        deg: weatherData.wind.deg,
-        speed: weatherData.wind.speed
-    }
-
-    for (let key in weatherObj) {
-        const element = main.querySelector(`[key = "${key}"]`);
-        if (key === 'icon') {
-            element.src = `https://openweathermap.org/img/w/${weatherObj[key]}.png`;
-        } else {
-            element.innerHTML = weatherObj[key];
-        }
-    }
-    
-    main.classList.remove('display-none');
-}
-
