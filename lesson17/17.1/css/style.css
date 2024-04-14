@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Podkova:wght@400..800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{  
+    width: 100vw;
+    background-color: #696969;
+    min-height: 100vh;
+    display: flex;
+}
+main{
+    /* background-color: #95659b59; */
+    width: 100%;
+    /* display: flex; */
+    padding: 5%;
+    /* gap: 30px; */
+    position: relative;
+}
+nav{
+    /* height: 100%; */
+    display: flex;
+    position: relative;
+}
+.nav li:hover{
+    box-shadow: 0px 0px 5px 2px #1D0620;
+    cursor: pointer;
+}
+.single-product{
+    backdrop-filter: blur(3px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.single-product .single-product__card{
+    box-shadow: unset;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px 2px #1D0620;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    min-height: unset;
+    padding: 30px;
+    position: relative;
+}
+.single-product .single-product__card .btn-close{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.single-product__card img{
+    max-width: 30%;
+}
+.single-product__card hr{
+    width: 50%;
+    /* box-shadow: #1D0620 0px 0px 5px 2px; */
+}
+.card-img-top{
+    width: unset;
+}
+.card-body{
+    flex:unset;
+}
+.card{
+    min-height: 100%;
+    cursor: pointer;
+}
+.card:hover{
+    box-shadow: 0px 0px 5px 2px #1D0620;
+}
+.buy-form{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    backdrop-filter: blur(3px);
+    cursor: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.form-amount{
+    display: flex;
+    align-items: center;
+}
+.form-label{
+    margin: 0;
+}
+.form-name, .form-delivery{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.buy-form__container{
+    background-color: white;
+    padding: 2%;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.buy-form__buttons{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+}
+.buy-form__buttons button{
+    width: 30%;
+}
+.local-storage{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* background-color: #ff6d6d; */
+}
+li hr{
+    margin: 0;
+}
