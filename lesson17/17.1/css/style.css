@@ -11,15 +11,11 @@ body{
     display: flex;
 }
 main{
-    /* background-color: #95659b59; */
     width: 100%;
-    /* display: flex; */
     padding: 5%;
-    /* gap: 30px; */
     position: relative;
 }
 nav{
-    /* height: 100%; */
     display: flex;
     position: relative;
 }
@@ -60,7 +56,6 @@ nav{
 }
 .single-product__card hr{
     width: 50%;
-    /* box-shadow: #1D0620 0px 0px 5px 2px; */
 }
 .card-img-top{
     width: unset;
@@ -120,7 +115,6 @@ nav{
     position: absolute;
     width: 100%;
     height: 100%;
-    /* background-color: #ff6d6d; */
 }
 li hr{
     margin: 0;
